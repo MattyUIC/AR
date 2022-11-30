@@ -39,6 +39,28 @@ function setup() {
 }
 
 
+function rainbow(x, y){
+
+  fill(0)
+
+  stroke(255,0,0)
+  bezier(x, y, x+25, y - 50,  x + 75, y - 50, x + 100, y);
+  stroke(100,100,100)
+  bezier(x+5, y, x+30, y - 45,  x + 70, y - 45, x + 95, y);
+  stroke(0,255,0)
+  bezier(x+10, y, x+35, y - 40,  x + 65, y - 40, x + 90, y);
+  stroke(0,100,100)
+
+  bezier(x+15, y, x+40, y - 35,  x + 60, y - 35, x + 85, y);
+  stroke(0,0,255)
+
+  bezier(x+20, y, x+45, y - 30,  x + 55, y - 30, x + 80, y);
+
+  // bezier(x, y, x+25, y - 50,  x + 75, y - 50, x + 100, y);
+  // bezier(x, y, x+25, y - 50,  x + 75, y - 50, x + 100, y);
+
+}
+
 function draw() {
   // erase the background
   world.clearDrawingCanvas();
@@ -47,9 +69,14 @@ function draw() {
   if (markerHiro.isVisible() == true) {
     // get the position of this marker
     var hiroPosition = markerHiro.getScreenPosition();
- 
-    ellipse( hiroPosition.x, hiroPosition.y, 50, 50 );
-  
+    var x = hiroPosition.x;
+    var y = hiroPosition.y;
+    
+
+    stroke(255);
+
+    rainbow(x,y)
+
   }
 
 }
